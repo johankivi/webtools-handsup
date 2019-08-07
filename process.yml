@@ -1,0 +1,9 @@
+apps:
+  - script: ./server.js
+    name: handsup
+    max_memory_restart: 500M
+    max_restarts: 10
+    instances: 1
+    exec_mode: cluster
+    env:
+      NODE_ENV: production

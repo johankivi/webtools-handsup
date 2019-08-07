@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title><%= title %></title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+
+    	<!-- JS -->
+		<script type="text/javascript" src="<%= appRoot %>/js/socket.io.min.js"></script>
+		<script type="text/javascript" src="<%= appRoot %>/js/jquery-3.1.0.min.js"></script>
+		<script type="text/javascript" src="<%= appRoot %>/js/velocity.min.js"></script>
+		<script type="text/javascript" src="<%= appRoot %>/js/handsup-elev.js"></script>
+	</head>
+	<body>
+		<main class="container">
+			<header class="header">
+				<aside class="header-item header-item--room room"></aside>
+				<aside class="header-item header-item--username username"></aside>
+			</header>
+			<article class="screens">
+				<section class="screen screen__whoops">
+					<!-- Whoops lost connection to teacher -->
+					<div class="whoops">
+						<h1>Nu tappade läraren kontakt med servern!</h1>
+						<h2>Ibland skiter det sig med tekniken. Skriv in den nya rumskoden för att köa igen.</h2>
+
+						<!-- Room number -->
+						<input type="text" id="whoops__input-room" class="input-room" placeholder="rumskod" autocomplete="off" />
+						<br>
+						<label for="whoops__input-room" class="room-error"></label>
+					</div>
+				</section>
+
+				<section class="screen screen__disconnected">
+					<!-- Disconnected -->
+					<div class="disconnected">
+						<h1>Nu tappade du kontakt med servern!</h1>
+						<h2>Ibland skiter det sig med tekniken. Ladda om sidan för att ansluta igen.</h2>
+
+						<!-- Room  -->
+						<p id="reload" class="button">Ladda om sidan</p>
+					</div>
+				</section>
+
+				<section class="screen screen__settings">
+					<!-- Name -->
+					<input type="text" id="input-user" placeholder="namn" autocomplete="off" />
+					<!-- Room number -->
+					<input type="text" id="input-room" class="input-room" placeholder="rumskod" autocomplete="off" />
+					<br>
+					<label for="input-room" class="room-error"></label>
+				</section>
+
+				<section class="screen screen__handraising">
+					<!-- Raise hand -->
+					<a id="raise-hand" class="button">Räck upp handen!</a>
+
+					<!-- Unraise hand -->
+					<a id="unraise-hand">Ta ner handen!</a>
+					<h1 id="greeting">Du räcker nu upp din digitala hand!</h1>
+				</section>
+			</article>
+
+			<img src="img/arm.svg" draggable="false" class="arm" alt="arm">
+		</main>
+
+		<!-- Google Analytics -->
+		<script>
+			if (window.navigator.doNotTrack == "1") {
+				console.info("Spårning: av");
+			} else {
+				(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+
+				ga("create", "UA-66586414-1", "auto");
+				ga("send", "pageview");
+			}
+		</script>
+	</body>
+</html>
